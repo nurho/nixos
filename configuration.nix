@@ -75,7 +75,25 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  programs.zsh.enable = true;
+  # enable zsh and oh my zsh
+  programs = {
+     zsh = {
+        enable = true;
+        autosuggestions.enable = true;
+        zsh-autoenv.enable = true;
+        syntaxHighlighting.enable = true;
+        ohMyZsh = {
+           enable = true;
+           theme = "agnoster";
+           plugins = [
+             "git"
+             "history"
+             "vi-mode"
+             "rust"
+           ];
+        };
+     };
+  };
   users.defaultUserShell = pkgs.zsh;
   programs.waybar.enable = true;
 
