@@ -121,22 +121,29 @@
 
       fonts.fontconfig.enable = true;
 
-      # Shell
-      programs.nushell = {
-        enable = true;
-        configFile.text = builtins.readFile ./dotfiles/nu/config.nu;
-        envFile.text = builtins.readFile ./dotfiles/nu/env.nu;
-        extraConfig = builtins.readFile ./dotfiles/nu/cmds.nu;
-      };
+      # Programs requiring config
+      programs = {
 
-      programs.starship = { enable = true;
-        settings = {
-   #       add_newline = true;
-          character = { 
-            success_symbol = "[➜](bold green)";
-            error_symbol = "[➜](bold red)";
+        # Shell
+        nushell = {
+          enable = true;
+          configFile.text = builtins.readFile ./dotfiles/nu/config.nu;
+          envFile.text = builtins.readFile ./dotfiles/nu/env.nu;
+        };
+        carapace = {
+          enable = true;
+          enableNushellIntegration = true;
+        };
+        starship = {
+          enable = true;
+          settings = {
+            character = { 
+              success_symbol = "[➜](bold green)";
+              error_symbol = "[➜](bold red)";
+            };
           };
         };
+
       };
 
 #      programs.zsh = {
@@ -159,7 +166,7 @@
 #        };
 #      };
 
-      # Programs
+      # Other programs
       home.packages = with pkgs; [
         # Sway
         dbus # make dbus-update-activation-environment available in the path
