@@ -124,6 +124,12 @@
       # Programs requiring config
       programs = {
 
+        # Bar
+        waybar = {
+          enable = true;
+          style = ./dotfiles/waybar/style.css;
+        };
+
         # Shell
         nushell = {
           enable = true;
@@ -147,7 +153,7 @@
         };
 
         # Terminal emulator
-        programs.wezterm = {
+        wezterm = {
           enable = true;
           extraConfig = builtins.readFile ./dotfiles/wezterm/wezterm.lua;
         };
