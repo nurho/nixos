@@ -146,6 +146,12 @@
           };
         };
 
+        # Terminal emulator
+        programs.wezterm = {
+          enable = true;
+          extraConfig = builtins.readFile ./dotfiles/wezterm/wezterm.lua;
+        };
+
         # File manager
         yazi = {
           enable = true;
@@ -205,7 +211,6 @@
         swayest-workstyle # dynamic workspace titles
 
         # Terminal
-        wezterm
         neovim 
         helix
         git
@@ -213,8 +218,8 @@
         cmake
         eza
         neofetch
-        htop
-        btop
+        bottom
+        powertop
         wget
         networkmanager
         networkmanagerapplet

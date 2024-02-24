@@ -1,8 +1,8 @@
 $env.config = {
-    show_banner: false # true or false to enable or disable the welcome banner at startup
-    rm: {
-        always_trash: true # always act as if -t was given. Can be overridden with -p
-    }
+  show_banner: false # true or false to enable or disable the welcome banner at startup
+  rm: {
+    always_trash: true # always act as if -t was given. Can be overridden with -p
+  }
 }
 
 ################################
@@ -11,7 +11,12 @@ $env.config = {
 
 # Neovim
 alias v  = nvim
-alias ls = eza
+
+# Helix
+alias h = helix
+
+# File browser
+alias y = yazi
 
 # NixOS
 alias nixup = sudo nixos-rebuild switch --flake "/home/willow/nixos/#nixos"
