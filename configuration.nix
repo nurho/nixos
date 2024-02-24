@@ -134,6 +134,8 @@
           enable = true;
           enableNushellIntegration = true;
         };
+
+        # Prompt
         starship = {
           enable = true;
           settings = {
@@ -144,6 +146,17 @@
           };
         };
 
+        # File manager
+        yazi = {
+          enable = true;
+          enableNushellIntegration = true;
+        };
+
+        # Editor
+        helix = {
+          enable = true;
+          settings = builtins.fromTOML (builtins.readFile ./dotfiles/helix/helix.toml);
+        };
       };
 
 #      programs.zsh = {
@@ -208,6 +221,7 @@
         killall
         tree
         zoxide
+        tree-sitter
 
         # Windowed
         pavucontrol
