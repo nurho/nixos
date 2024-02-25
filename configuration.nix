@@ -167,10 +167,6 @@
         };
 
         # Editors
-        neovim = {
-          enable = true;
-          extraConfig = builtins.readFile ./dotfiles/neovim/init.lua;
-        };
         helix = {
           enable = true;
           settings = builtins.fromTOML (builtins.readFile ./dotfiles/helix/helix.toml);
@@ -256,10 +252,13 @@
       ];
 
       # Link extra config files
+      xdg.configFile."nvim/init.lua".source = ./dotfiles/neovim/init.lua;
       xdg.configFile."waybar/config".source = ./dotfiles/waybar/config;
       xdg.configFile."swaylock/config".source = ./dotfiles/swaylock/config;
       xdg.configFile."sworkstyle/config.toml".source = ./dotfiles/sworkstyle/config.toml;
       xdg.configFile."sway/config".source = ./dotfiles/sway/config;
+      xdg.configFile."sway/wallpaper.png".source = ./dotfiles/sway/wallpaper.png;
+      xdg.configFile."wlogout".source = ./dotfiles/wlogout;
 
       fonts.fontconfig.enable = true;
     };
