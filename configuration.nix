@@ -40,13 +40,12 @@
   networking.networkmanager.enable = true;
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
 
   # Proxy
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Locale
-  time.timeZone = "Europe/London";
+# Locale time.timeZone = "Europe/London";
   services.xserver.xkb.layout = "gb";
   i18n.defaultLocale = "en_GB.UTF-8";
   console = {
