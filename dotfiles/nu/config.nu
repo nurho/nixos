@@ -13,7 +13,7 @@ $env.config = {
 alias v  = nvim
 
 # Helix
-alias h = helix
+alias h = hx
 
 # File browser
 alias y = yazi

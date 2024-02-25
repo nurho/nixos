@@ -106,7 +106,11 @@
     extraGroups = [ "wheel" "video" "networkmanager" ];
   };
 
-  # Home Manager (user-level configuration)
+
+  ################################
+  #### Home Manager (user config)#
+  ################################
+
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
     users.willow = {
@@ -118,8 +122,6 @@
       
       imports = [
       ];
-
-      fonts.fontconfig.enable = true;
 
       # Programs requiring config
       programs = {
@@ -164,7 +166,11 @@
           enableNushellIntegration = true;
         };
 
-        # Editor
+        # Editors
+        neovim = {
+          enable = true;
+          extraConfig = builtins.readFile ./dotfiles/neovim/init.lua;
+        };
         helix = {
           enable = true;
           settings = builtins.fromTOML (builtins.readFile ./dotfiles/helix/helix.toml);
@@ -248,6 +254,14 @@
         font-awesome_5
         jetbrains-mono
       ];
+
+      # Link extra config files
+      xdg.configFile."waybar/config".source = ./dotfiles/waybar/config;
+      xdg.configFile."swaylock/config".source = ./dotfiles/swaylock/config;
+      xdg.configFile."sworkstyle/config.toml".source = ./dotfiles/sworkstyle/config.toml;
+      xdg.configFile."sway/config".source = ./dotfiles/sway/config;
+
+      fonts.fontconfig.enable = true;
     };
   };
 

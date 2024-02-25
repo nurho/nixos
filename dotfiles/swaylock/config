@@ -1,0 +1,17 @@
+color=282a36
+indicator-radius=100
+inside-color=44475a
+inside-clear-color=50fa7b
+inside-ver-color=8be9fd
+inside-wrong-color=ff5555
+key-hl-color=50fa7b
+line-color=00000000
+ring-color=ff79c6
+ring-clear-color=50fa7b
+ring-ver-color=8be9fd
+ring-wrong-color=ff5555
+separator-color=6272a4
+text-color=f8f8f2
+text-clear-color=282a36
+text-ver-color=282a36
+text-wrong-color=282a36
