@@ -7,3 +7,4 @@
   - [ ] sworkstyle:       config.toml
   - [ ] wlogout:          icons; layout; style.css
   - [ ] sway:             config
+- [ ] Find solution for ssh keys
