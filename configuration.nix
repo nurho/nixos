@@ -83,7 +83,7 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "networkmanager" ];
   };
-  services.polkit.enable = true;
+  security.polkit.enable = true;
 
 
   ################################
