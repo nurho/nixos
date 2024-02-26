@@ -69,6 +69,10 @@
   # Printing
   services.printing.enable = true;
 
+  # USB mounting
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+  services.devmon.enable = true;
 
   # Login
   services.greetd = {
@@ -137,10 +141,10 @@
           configFile.text = builtins.readFile ./dotfiles/nu/config.nu;
           envFile.text = builtins.readFile ./dotfiles/nu/env.nu;
         };
-        carapace = {
-          enable = true;
-          enableNushellIntegration = true;
-        };
+#        carapace = {
+#          enable = true;
+#          enableNushellIntegration = true;
+#        };
 
         # Prompt
         starship = {
@@ -249,6 +253,7 @@
         mpv
         zathura
         gimp
+        pcmanfm
 
         # Fonts
         nerdfonts
