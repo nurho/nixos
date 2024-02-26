@@ -25,7 +25,8 @@ alias y = yazi
 # NixOS
 alias nixup = sudo nixos-rebuild switch --flake "/home/willow/nixos/#nixos"
 #alias nixup = sudo nixos-rebuild switch
-alias nixedit = sudo nvim /etc/nixos/configuration.nix
+alias nixedit = sudo nvim ~/nixos/configuration.nix
+#alias nixedit = sudo nvim /etc/nixos/configuration.nix
 
 # List
 # alias ls = eza
