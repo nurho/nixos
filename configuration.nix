@@ -228,6 +228,7 @@
         zathura
         gimp
         pcmanfm
+        gparted
 
         # Fonts
         nerdfonts
