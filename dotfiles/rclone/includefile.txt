@@ -1,0 +1,6 @@
+/Documents/**
+/Downloads/**
+/Music/**
+/Pictures/**
+/Screenshots/**
+/Videos/**

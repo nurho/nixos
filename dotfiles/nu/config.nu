@@ -25,7 +25,7 @@ alias y = yazi
 # NixOS
 alias nixup = sudo nixos-rebuild switch --flake "/home/willow/nixos/#nixos"
 #alias nixup = sudo nixos-rebuild switch
-alias nixedit = sudo nvim ~/nixos/configuration.nix
+alias nixedit = nvim ~/nixos/configuration.nix
 #alias nixedit = sudo nvim /etc/nixos/configuration.nix
 
 # List
@@ -34,17 +34,28 @@ alias l  = eza -F
 alias la = eza -A
 alias ll = eza -alF
 
+# Clear screen
+alias cls = clear
+
 # Quit terminal
 alias q = exit
 
 # Git
 alias ga = git add -A
+def gc [msg] {
+  git commit -m $msg
+}
+
+# Backups
+alias mlocal  = mount /dev/sda1 /run/media/willow/
+alias umlocal = umount /dev/sda1
+alias localbu = sudo rclone sync ~ /run/media/willow/Data-Backup --include-from ~/nixos/dotfiles/rclone/includefile.txt -vvP --stats=1s
 
 # Zathura
 alias zdv = zathura
 def zdvd [doc] {
-  zathura $doc & disown
+  bash -c (['zathura ', $doc , ' & disown'] | str join)
 }
 def zdve [doc] {
-  zathura $doc & disown and exit
+  bash -c (['zathura ', $doc , ' & disown'] | str join); exit
 }

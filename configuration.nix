@@ -195,7 +195,7 @@
         grim # screenshots
         slurp # screenshots
         wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-        bemenu # wayland clone of dmenu
+        bemenu # menu
         mako # notifications
         wdisplays # tool to configure displays
         wlogout # logout menu
@@ -218,6 +218,7 @@
         tree
         zoxide
         tree-sitter
+        rclone
 
         # Windowed
         pavucontrol
