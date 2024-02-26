@@ -11,7 +11,7 @@ $env.config = {
 ################################
 
 # Neovim
-alias v  = nvim
+alias v = nvim
 
 # Helix
 alias h = hx
@@ -25,13 +25,16 @@ alias nixup = sudo nixos-rebuild switch --flake "/home/willow/nixos/#nixos"
 alias nixedit = sudo nvim /etc/nixos/configuration.nix
 
 # List
-alias ls = eza
-alias l = eza -F
+# alias ls = eza
+alias l  = eza -F
 alias la = eza -A
 alias ll = eza -alF
 
 # Quit terminal
 alias q = exit
+
+# Git
+alias ga = git add -A
 
 # Zathura
 alias zdv = zathura

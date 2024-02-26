@@ -1,6 +1,5 @@
 # NixOS Config
 # Todo list
 
-- [x] Integrate configs into nix configuration
+- [ ] Enable brightness control
 - [ ] Find solution for ssh keys
-- [ ] Get bluetooth working
