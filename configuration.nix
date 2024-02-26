@@ -214,7 +214,6 @@
         swaylock-effects # lock screen
         swayidle # idle monitor
         light # brightness
-        pactl # volume
         grim # screenshots
         slurp # screenshots
         wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
@@ -224,6 +223,7 @@
         wlogout # logout menu
         gtk-layer-shell # transparency for wlogout
         swayest-workstyle # dynamic workspace titles
+        pulseaudio # for pactl
 
         # Terminal
         neovim 
