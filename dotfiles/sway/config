@@ -60,7 +60,8 @@ exec_always gsettings set org.gnome.desktop.interface gtk-theme 'dracula-theme'
 
 # Get names of inputs: swaymsg -t get_inputs. `man 5 sway-input` for info.
 # Touchpad
-  input "1739:52781:SYNA1000:00_06CB:CE2D_Touchpad" {
+#  input "1739:52781:SYNA1000:00_06CB:CE2D_Touchpad" {
+  input "2:7:SynPS/2_Synaptics_Touchpad" {
     natural_scroll enabled
     tap enabled
   #  dwt enabled

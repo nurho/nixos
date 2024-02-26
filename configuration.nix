@@ -165,10 +165,17 @@
           enableNushellIntegration = true;
         };
 
-        # Editors
+        # Editor
         helix = {
           enable = true;
           settings = builtins.fromTOML (builtins.readFile ./dotfiles/helix/helix.toml);
+        };
+
+        # Git
+        git = {
+          enable = true;
+          userName  = "nurho";
+          userEmail = "willowisawisp@gmail.com";
         };
       };
 
@@ -207,6 +214,7 @@
         swaylock-effects # lock screen
         swayidle # idle monitor
         light # brightness
+        pactl # volume
         grim # screenshots
         slurp # screenshots
         wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
@@ -219,8 +227,6 @@
 
         # Terminal
         neovim 
-        helix
-        git
         gcc
         cmake
         eza
