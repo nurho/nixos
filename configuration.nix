@@ -45,7 +45,9 @@
   # Proxy
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-# Locale time.timeZone = "Europe/London";
+
+  # Locale
+  time.timeZone = "Europe/London";
   services.xserver.xkb.layout = "gb";
   i18n.defaultLocale = "en_GB.UTF-8";
   console = {
@@ -71,11 +73,9 @@
   # Login
   services.greetd = {
     enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
-        user = "willow";
-      };
+    settings.default_session = {
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+      user = "willow";
     };
   };
 
