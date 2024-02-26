@@ -4,6 +4,9 @@ $env.config = {
   rm: {
     always_trash: true # always act as if -t was given. Can be overridden with -p
   }
+  completions: {
+    case_sensitive: false
+  }
 }
 
 ################################

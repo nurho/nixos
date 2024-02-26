@@ -27,7 +27,7 @@ exec_always gsettings set org.gnome.desktop.interface gtk-theme 'dracula-theme'
 #  set $menu bemenu-run | xargs swaymsg exec --
 
 # Lock screen command
-  set $lock 'swaylock --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-scale 1.04 --scaling center --effect-blur 7x5 --ring-color ff79c6 --key-hl-color 50fa7b --line-color 00000000 --ring-clear-color 50fa7b --inside-color 44475a --inside-clear-color 50fa7b --inside-ver-color 8be9fd --inside-wrong-color ff5555 --separator-color 6272a4 --text-color f8f8f2 --fade-in 1'
+  set $lock 'swaylock -f --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-scale 1.04 --scaling center --effect-blur 7x5 --ring-color ff79c6 --key-hl-color 50fa7b --line-color 00000000 --ring-clear-color 50fa7b --inside-color 44475a --inside-clear-color 50fa7b --inside-ver-color 8be9fd --inside-wrong-color ff5555 --separator-color 6272a4 --text-color f8f8f2 --fade-in 1'
 
 # Colours
   set $bground #282a36
@@ -75,9 +75,10 @@ exec_always gsettings set org.gnome.desktop.interface gtk-theme 'dracula-theme'
   }
 
 # Brightness keys
-  bindsym XF86MonBrightnessDown exec light -U 10
-  bindsym XF86MonBrightnessUp exec light -A 10
-
+#  bindsym XF86MonBrightnessDown exec light -U 10
+#  bindsym XF86MonBrightnessUp exec light -A 10
+  bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+  bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 # Volume keys
   bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
   bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
@@ -93,10 +94,10 @@ exec_always gsettings set org.gnome.desktop.interface gtk-theme 'dracula-theme'
   exec swayidle -w \
          timeout 300 $lock \
          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#         before-sleep $lock \
-         lock $lock
+         before-sleep $lock \
+#         lock $lock
 # Lock screen on lid close
-  bindswitch --reload --locked lid:on exec $lock
+#  bindswitch --reload --locked lid:on exec $lock
 
 ################################
 ### Status Bar               ###

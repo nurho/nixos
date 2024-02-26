@@ -1,7 +1,6 @@
 # NixOS Config
 # Todo list
 
-- [ ] Enable brightness control
 - [ ] Improve volume control (move by 2? and upper bound)
 - [ ] Enable mic toggle
 - [ ] Find solution for sway input configuration (inject device IDs)

@@ -213,7 +213,7 @@
         waybar # bar
         swaylock-effects # lock screen
         swayidle # idle monitor
-        light # brightness
+        brightnessctl # brightness
         grim # screenshots
         slurp # screenshots
         wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
