@@ -83,6 +83,8 @@
     },
     "clock": {
         // "timezone": "America/New_York",
+        "format": "{:%a %d/%m/%y - %T}",
+        "interval": 1,
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
     },
@@ -119,7 +121,8 @@
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+        "interval": 10
     },
     "battery#bat2": {
         "bat": "BAT2"

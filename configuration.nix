@@ -81,7 +81,7 @@
   # Users
   users.users.willow = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "networkmanager" ];
+    extraGroups = [ "wheel" "video" "input" "networkmanager" ];
   };
 
 
