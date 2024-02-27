@@ -230,6 +230,10 @@
         gimp
         pcmanfm
 
+        # Dev
+        haskell.compiler.ghc98
+        cabal-install
+
         # Fonts
         nerdfonts
         font-awesome

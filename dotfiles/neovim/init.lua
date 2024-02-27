@@ -35,9 +35,24 @@ require("lazy").setup({
      end
   },
 
-  -- Nerdtree
+  -- Tree
   {
     'preservim/nerdtree',
+  },
+
+  -- Tabs
+  {
+    'romgrk/barbar.nvim',
+    dependencies = {
+      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    },
+    init = function() vim.g.barbar_auto_setup = false end,
+    opts = {
+      animation = true,
+      -- insert_at_start = true,
+    },
+    version = '^1.0.0', -- optional: only update when a new 1.x version is released
   },
 
   -- Icons
@@ -142,14 +157,27 @@ wk.register(mappings, opts)
 -- Extra mappings with which-key
 wk.register({
   w = { "<cmd>w<cr>", "Write" },
-  q = { "<cmd>q<cr>", "Quit" },
-  h = { "<cmd>noh<cr>", "Cancel highlight" },
+  c = { "<cmd>BufferClose<cr>", "Close" },
+  q = { "<cmd>qa<cr>", "Quit" },
+  x = { "<cmd>wqa<cr>", "Write + Quit" },
+  h = { "<cmd>noh<cr>", "Cancel Highlight" },
   e = { "<cmd>NERDTreeToggle<cr>", "Explorer" },
+  t = {
+    name = "Tab",
+    j = { "<cmd>BufferPrevious<cr>", "Previous" },
+    k = { "<cmd>BufferNext<cr>", "Next" },
+    p = { "<cmd>BufferPick<cr>", "Pick" },
+    m = {
+      name = "Move",
+      j = { "<cmd>BufferMovePrevious<cr>", "Previous" },
+      k = { "<cmd>BufferMoveNext<cr>", "Next" },
+    },
+  },
   f = {
     name = "Find",
     f = { "<cmd>Telescope find_files hidden=true<cr>", "File" },
     b = { "<cmd>Telescope buffers<cr>", "Buffer" },
-    g = { "<cmd>Telescope git_files<cr>", "Git file" },
+    g = { "<cmd>Telescope git_files<cr>", "Git File" },
 --      r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap=false, buffer = 123 }, -- additional options for creating the keymap
 --      n = { "New File" }, -- just a label. don't create any mapping
 --      e = "Edit File", -- same as above
