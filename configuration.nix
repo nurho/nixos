@@ -232,7 +232,7 @@
 
         # Fonts
         nerdfonts
-        font-awesome_5
+        font-awesome
         jetbrains-mono
       ];
 
