@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
     "modules-center": ["sway/window"],
-    "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "backlight", "keyboard-state", "battery", "battery#bat2", "tray", "clock"],
+    "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "backlight", "battery", "tray", "clock"],
     // Modules configuration
 //     "sway/workspaces": {
     //     "disable-scroll": true,
@@ -83,10 +83,12 @@
     },
     "clock": {
         // "timezone": "America/New_York",
-        "format": "{:%a %d/%m/%y - %T}",
+        "format": "{:%R}",
         "interval": 1,
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+//        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "<big>{:%A %d}</big>\n<tt><small>{calendar}</small></tt>",
+//        "format-alt": "{:%Y-%m-%d}"
+        "format-alt": "{:%T %a %d/%m/%y}"
     },
     "cpu": {
         "format": "{usage}% ",

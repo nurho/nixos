@@ -24,8 +24,8 @@ exec_always gsettings set org.gnome.desktop.interface gtk-theme 'dracula-theme'
 # Application launcher
 # Note: pass final command to swaymsg so resulting window opens on current workspace
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
-  set $menu bemenu-run | xargs swaymsg exec --
-
+#  set $menu bemenu-run -n -i -p 'Run' --list 10 --tf '#50fa7b' --tb '#282a36' --nf '#f8f8f2' --nb --ff --fb '#282a36' --hf --hb 
+  set $menu bemenu-run -n -i -p 'Run' --list 8 --line-height 52 -W 0.25 -B 4 --bdr '#ff79c6' -P '->' --cw 12 --ch 32 --fn 'Jetbrains Mono' 40 --fixed-height --tf '#ffb86c' --tb '#282a36' --nf '#f8f8f2' --nb '#282a36' --af '#f8f8f2' --ab '#282a36' --ff '#50fa7b' --fb '#282a36' --hf '#ffb86c' --hb '#44475a' --cf '#8be9fd'
 # Lock screen command
   set $lock 'swaylock -f --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-scale 1.04 --scaling center --effect-blur 7x5 --ring-color ff79c6 --key-hl-color 50fa7b --line-color 00000000 --ring-clear-color 50fa7b --inside-color 44475a --inside-clear-color 50fa7b --inside-ver-color 8be9fd --inside-wrong-color ff5555 --separator-color 6272a4 --text-color f8f8f2 --fade-in 1'
 

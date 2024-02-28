@@ -117,10 +117,6 @@
           configFile.text = builtins.readFile ./dotfiles/nu/config.nu;
           envFile.text = builtins.readFile ./dotfiles/nu/env.nu;
         };
-#        carapace = {
-#          enable = true;
-#          enableNushellIntegration = true;
-#        };
 
         # Prompt
         starship = {
@@ -159,25 +155,6 @@
         };
       };
 
-#      programs.zsh = {
-#        enable = true;
-#        #autosuggestions.enable = true;
-#        #zsh-autoenv.enable = true;
-#        syntaxHighlighting.enable = true;
-#        dotDir = "nixos/dotfiles/zsh";
-#        oh-my-zsh = {
-#          enable = true;
-#          theme = "agnoster";
-#          plugins = [
-#            "git"
-#            "history"
-#            "vi-mode"
-#            "rust"
-#            "zsh-autocorrections"
-#            "zsh-autoenv"
-#          ];
-#        };
-#      };
 
       # Other programs
       home.packages = with pkgs; [
@@ -231,8 +208,9 @@
         pcmanfm
 
         # Dev
-        haskell.compiler.ghc98
+        haskell.compiler.ghc94
         cabal-install
+        haskell-language-server
 
         # Fonts
         nerdfonts

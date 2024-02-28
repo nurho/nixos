@@ -47,7 +47,8 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
+    /*box-shadow: inset 0 -3px #ffffff;*/
+    box-shadow: inset 0 -3px #282a36;
 }
 
 #workspaces button {
@@ -61,8 +62,11 @@ button:hover {
 }
 
 #workspaces button.focused {
+  /**/
+    color: #ff79c6;
     background-color: #44475a;
-    box-shadow: inset 0 -3px #f8f8f2;
+   /* box-shadow: inset 0 -3px #f8f8f2;*/
+   box-shadow: inset 0 -3px #50fa7b;
 }
 
 #workspaces button.urgent {
@@ -71,7 +75,8 @@ button:hover {
 
 #mode {
     background-color: #64727D;
-    border-bottom: 3px solid #ffffff;
+/*    border-bottom: 3px solid #ffffff;*/
+    border-bottom: 3px solid #ff79c6;
 }
 
 #clock,

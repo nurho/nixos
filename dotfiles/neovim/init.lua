@@ -18,7 +18,8 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Setup plugins
 require("lazy").setup({
-  -- Treesitter
+
+  -- Highlighting
   {
      "nvim-treesitter/nvim-treesitter",
      build = ":TSUpdate",
@@ -26,7 +27,7 @@ require("lazy").setup({
      local configs = require("nvim-treesitter.configs")
 
      configs.setup({
-       ensure_installed = { "c", "lua", "vim", "vimdoc", "query", },
+       ensure_installed = { "haskell", "nix", "lua", "vim", "vimdoc", "query", },
        sync_install = false,
        auto_install = true,
        highlight = { enable = true },
@@ -38,6 +39,9 @@ require("lazy").setup({
   -- Tree
   {
     'preservim/nerdtree',
+    dependencies = {
+      'ryanoasis/vim-devicons',
+    },
   },
 
   -- Tabs
@@ -53,11 +57,6 @@ require("lazy").setup({
       -- insert_at_start = true,
     },
     version = '^1.0.0', -- optional: only update when a new 1.x version is released
-  },
-
-  -- Icons
-  {
-    'ryanoasis/vim-devicons',
   },
 
   -- Telescope
@@ -95,8 +94,8 @@ require("lazy").setup({
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs to stdpath for neovim
-      { 'williamboman/mason.nvim', config = true },
-      'williamboman/mason-lspconfig.nvim',
+--      { 'williamboman/mason.nvim', config = true },
+--      'williamboman/mason-lspconfig.nvim',
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -104,6 +103,9 @@ require("lazy").setup({
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
+
+      -- Toggle diagnostics
+      'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim',
     },
   },
 
@@ -120,6 +122,24 @@ require("lazy").setup({
     }
   }
 })
+
+
+-- ################################
+-- ### LSP SETUP                ###
+-- ################################
+
+local lspconfig = require('lspconfig')
+lspconfig.hls.setup {
+  filetypes = { 'haskell', 'lhaskell', 'cabal' },
+}
+--lspconfig.rust_analyzer.setup {
+  -- Server-specific settings. See `:help lspconfig-setup`
+--  settings = {
+--    ['rust-analyzer'] = {},
+--  },
+--}
+--lspconfig.pyright.setup {}
+require'toggle_lsp_diagnostics'.init()
 
 
 -- ################################
@@ -182,5 +202,12 @@ wk.register({
 --      n = { "New File" }, -- just a label. don't create any mapping
 --      e = "Edit File", -- same as above
 --      b = { function() print("bar") end, "Foobar" } -- you can also pass functions!
+  },
+  l = {
+    name = "LSP",
+    j = { vim.diagnostic.goto_next, "Next Diagnostic" },
+    k = { vim.diagnostic.goto_prev, "Next Diagnostic" },
+    t = { "<cmd>ToggleDiag<cr>", "Toggle Diagnostics" },
+    a = { vim.lsp.buf.code_action, "Code Action" },
   },
 }, { prefix = "<leader>" })
