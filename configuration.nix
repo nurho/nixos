@@ -196,6 +196,7 @@
         zoxide
         tree-sitter
         rclone
+        tokei
 
         # Windowed
         pavucontrol
@@ -211,6 +212,12 @@
         haskell.compiler.ghc94
         cabal-install
         haskell-language-server
+        freeglut
+        mesa
+        texliveFull
+        texlab
+        haskellPackages.OpenGLRaw
+        haskellPackages.gl
 
         # Fonts
         nerdfonts
