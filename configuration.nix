@@ -6,6 +6,10 @@
     ./hardware-configuration.nix
   ];
 
+  ################################
+  #### SYSTEM                  ###
+  ################################
+
   # Boot
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -23,13 +27,11 @@
 
   # Locale
   time.timeZone = "Europe/London";
-  services.xserver.xkb.layout = "gb";
   i18n.defaultLocale = "en_GB.UTF-8";
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "uk";
-   # useXkbConfig = true; # use xkb.options in tty.
-  };
+  console.keyMap = "uk";
+
+  # Graphics
+  hardware.opengl.enable = true;
 
   # Sound
   sound.enable = true;
@@ -69,6 +71,9 @@
     enable = true;
     wrapperFeatures.gtk = true;
   };
+
+  # VM
+  virtualisation.podman.enable = true;
 
   # Nix
   nixpkgs.config.allowUnfree = true;
@@ -179,6 +184,7 @@
         gtk-layer-shell # transparency for wlogout
         swayest-workstyle # dynamic workspace titles
         pulseaudio # for pactl
+        kanshi # auto display config
 
         # Terminal
         neovim 
@@ -212,12 +218,17 @@
         haskell.compiler.ghc94
         cabal-install
         haskell-language-server
-        freeglut
-        mesa
         texliveFull
         texlab
-        haskellPackages.OpenGLRaw
-        haskellPackages.gl
+        lua-language-server
+        distrobox
+#        freeglut
+#        mesa
+#        libGL
+#        libGLU
+#    	   glew
+#		     glfw
+#        glm
 
         # Fonts
         nerdfonts
@@ -234,14 +245,16 @@
       xdg.configFile."sway/wallpaper.png".source = ./dotfiles/sway/wallpaper.png;
       xdg.configFile."wlogout".source = ./dotfiles/wlogout;
 
+      services.kanshi.systemdTarget = "";
+      services.gammastep = {
+        enable = true;
+        provider = "manual";
+        latitude = 50.0;
+        longitude = -14.0;
+      };
       fonts.fontconfig.enable = true;
     };
   };
-
-  # System packages
-  environment.systemPackages = with pkgs; [
-    gparted
-  ];
 
   # Some programs need SUID wrappers, can be configured further or are started in user sessions.
   # programs.mtr.enable = true;

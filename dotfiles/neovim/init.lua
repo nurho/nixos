@@ -23,7 +23,7 @@ require("lazy").setup({
   {
      "nvim-treesitter/nvim-treesitter",
      build = ":TSUpdate",
-     config = function () 
+     config = function ()
      local configs = require("nvim-treesitter.configs")
 
      configs.setup({
@@ -31,7 +31,7 @@ require("lazy").setup({
        sync_install = false,
        auto_install = true,
        highlight = { enable = true },
-       indent = { enable = true },  
+       indent = { enable = true },
      })
      end
   },
@@ -103,7 +103,6 @@ require("lazy").setup({
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
-
       -- Toggle diagnostics
       'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim',
     },
@@ -120,7 +119,48 @@ require("lazy").setup({
     opts = {
       -- your configuration comes here. Leave it empty to use the default settings
     }
-  }
+  },
+
+  -- Completion
+  {
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+    },
+    config = function()
+      local cmp = require 'cmp'
+
+      cmp.setup {
+        completion = { completeopt = 'menu,menuone,noinsert' },
+        mapping = cmp.mapping.preset.insert {
+          -- Select the [n]ext item
+          ['<C-n>'] = cmp.mapping.select_next_item(),
+          -- Select the [p]revious item
+          ['<C-p>'] = cmp.mapping.select_prev_item(),
+          -- Accept ([y]es) the completion.
+          ['<C-y>'] = cmp.mapping.confirm { select = true },
+          -- Manually trigger a completion from nvim-cmp.
+          ['<C-Space>'] = cmp.mapping.complete {},
+        },
+        sources = {
+          { name = 'nvim_lsp' },
+          { name = 'luasnip' },
+          { name = 'path' },
+        },
+      }
+    end,
+  },
+
+  -- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
+  {
+    'numToStr/Comment.nvim',
+    opts = {
+        -- add any options here
+    },
+    lazy = false,
+  },
 })
 
 
@@ -133,6 +173,7 @@ lspconfig.hls.setup {
   filetypes = { 'haskell', 'lhaskell', 'cabal' },
 }
 lspconfig.texlab.setup {}
+lspconfig.lua_ls.setup {}
 --lspconfig.rust_analyzer.setup {
   -- Server-specific settings. See `:help lspconfig-setup`
 --  settings = {
@@ -168,6 +209,7 @@ set.wrap       = false
 
 -- Set leader key to <space>
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true })
+vim.keymap.set("v", "<Space>", "<Nop>", { silent = true })
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -211,4 +253,8 @@ wk.register({
     t = { "<cmd>ToggleDiag<cr>", "Toggle Diagnostics" },
     a = { vim.lsp.buf.code_action, "Code Action" },
   },
-}, { prefix = "<leader>" })
+  b = {
+    name = "Build",
+    l = { "<cmd>TexlabBuild<cr>", "LaTeX" },
+  },
+}, { prefix = "<leader>", mode="n"})

@@ -28,6 +28,16 @@ alias nixup = sudo nixos-rebuild switch --flake "/home/willow/nixos/#nixos"
 alias nixedit = nvim ~/nixos/configuration.nix
 #alias nixedit = sudo nvim /etc/nixos/configuration.nix
 
+# VM
+alias arch = distrobox enter arch
+
+def resetarch [] {
+  distrobox stop arch
+  distrobox rm arch
+  distrobox create -i docker.io/archlinux:latest -n arch
+  arch
+}
+
 # List
 # alias ls = eza
 alias l  = eza -F
