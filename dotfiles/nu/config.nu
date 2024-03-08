@@ -16,22 +16,9 @@ $env.config = {
 # Neovim
 alias vi = nvim
 
-# File browser
-def --env ya [...args] {
-	let tmp = (mktemp -t "yazi-cwd.XXXXX")
-	yazi ...$args --cwd-file $tmp
-	let cwd = (open $tmp)
-	if $cwd != "" and $cwd != $env.PWD {
-		cd $cwd
-	}
-	rm -fp $tmp
-}
-
 # NixOS
 alias nixup = sudo nixos-rebuild switch --flake "/home/willow/nixos/#nixos"
-#alias nixup = sudo nixos-rebuild switch
 alias nixedit = nvim ~/nixos/configuration.nix
-#alias nixedit = sudo nvim /etc/nixos/configuration.nix
 
 # VM
 alias arch = distrobox enter arch
