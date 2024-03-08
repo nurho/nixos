@@ -141,7 +141,7 @@
         };
 
         # Terminal navigation
-        programs.zoxide = {
+        zoxide = {
           enable = true;
           enableNushellIntegration = true;
         };
