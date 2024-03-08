@@ -14,13 +14,18 @@ $env.config = {
 ################################
 
 # Neovim
-alias v = nvim
-
-# Helix
-alias h = hx
+alias vi = nvim
 
 # File browser
-alias y = yazi
+def --env ya [...args] {
+	let tmp = (mktemp -t "yazi-cwd.XXXXX")
+	yazi ...$args --cwd-file $tmp
+	let cwd = (open $tmp)
+	if $cwd != "" and $cwd != $env.PWD {
+		cd $cwd
+	}
+	rm -fp $tmp
+}
 
 # NixOS
 alias nixup = sudo nixos-rebuild switch --flake "/home/willow/nixos/#nixos"
@@ -30,7 +35,6 @@ alias nixedit = nvim ~/nixos/configuration.nix
 
 # VM
 alias arch = distrobox enter arch
-
 def resetarch [] {
   distrobox stop arch
   distrobox rm arch
@@ -39,9 +43,7 @@ def resetarch [] {
 }
 
 # List
-# alias ls = eza
-alias l  = eza -F
-alias la = eza -A
+alias la = ls -a
 alias ll = eza -alF
 
 # Clear screen

@@ -140,6 +140,12 @@
           extraConfig = builtins.readFile ./dotfiles/wezterm/wezterm.lua;
         };
 
+        # Terminal navigation
+        programs.zoxide = {
+          enable = true;
+          enableNushellIntegration = true;
+        };
+
         # File manager
         yazi = {
           enable = true;
@@ -199,7 +205,6 @@
         networkmanagerapplet
         killall
         tree
-        zoxide
         tree-sitter
         rclone
         tokei
