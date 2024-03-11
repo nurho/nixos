@@ -1,8 +1,6 @@
-{ config, lib, pkgs, inputs, outputs, ... }:
+{ config, lib, pkgs, ... }: {
 
-{
   imports = [
-    inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
   ];
 
@@ -95,7 +93,6 @@
   ################################
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs outputs; };
     users.willow = {
       home = {
         username = "willow";
@@ -184,7 +181,8 @@
         slurp # screenshots
         wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
         bemenu # menu
-        mako # notifications
+#        mako # notifications
+        swaynotificationcenter # notification center
         wdisplays # tool to configure displays
         wlogout # logout menu
         gtk-layer-shell # transparency for wlogout
@@ -208,6 +206,7 @@
         tree-sitter
         rclone
         tokei
+        unzip
 
         # Windowed
         pavucontrol
@@ -218,6 +217,7 @@
         zathura
         gimp
         pcmanfm
+        libreoffice
 
         # Dev
         haskell.compiler.ghc94

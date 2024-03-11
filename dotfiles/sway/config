@@ -5,6 +5,8 @@ exec sworkstyle -d &> /tmp/sworkstyle.log
 exec_always gsettings set org.gnome.desktop.interface gtk-theme 'dracula-theme'
 exec kanshi -c ~/nixos/dotfiles/kanshi/config
 exec gammastep-indicator
+exec swaync
+
 
 ################################
 ### Variables                ###
@@ -147,6 +149,9 @@ bar {
 
   # Reload the configuration file
   bindsym $mod+Shift+c reload
+
+  # Toggle control center
+  bindsym $mod+Shift+n exec swaync-client -t -sw
 
   # Start kanshi
 #  bindsym $mod+m exec kanshi -c ~/nixos/dotfiles/kanshi/config  

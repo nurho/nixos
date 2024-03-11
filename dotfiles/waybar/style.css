@@ -213,6 +213,10 @@ label:focus {
     background-color: #ffa000;
 }
 
+#custom-notification {
+  font-family: "NotoSansMono Nerd Font";
+}
+
 #temperature {
     background-color: #ffb86c;
 }
