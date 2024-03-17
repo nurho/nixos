@@ -173,29 +173,6 @@
 
       # Other programs
       home.packages = with pkgs; [
-        # Sway
-        dbus # make dbus-update-activation-environment available in the path
-        wayland # window system
-        xdg-utils # for opening default programs when clicking links
-        glib # gsettings
-        dracula-theme # gtk theme
-        gnome3.adwaita-icon-theme # default gnome cursors
-        waybar # bar
-        swaylock-effects # lock screen
-        swayidle # idle monitor
-        brightnessctl # brightness
-        grim # screenshots
-        slurp # screenshots
-        wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-        bemenu # menu
-        swaynotificationcenter # notification center
-        wdisplays # tool to configure displays
-        wlogout # logout menu
-        gtk-layer-shell # transparency for wlogout
-        swayest-workstyle # dynamic workspace titles
-        pulseaudio # for pactl
-        kanshi # auto display config
-
         # Terminal
         neovim 
         gcc
