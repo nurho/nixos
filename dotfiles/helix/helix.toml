@@ -5,7 +5,7 @@ color-modes = true
 auto-pairs = false
 
 [editor.cursor-shape]
-insert = "bar"
+#insert = "bar"
 
 [editor.file-picker]
 hidden = false

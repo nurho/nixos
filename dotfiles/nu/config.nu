@@ -31,7 +31,7 @@ def resetarch [] {
 
 # List
 alias la = ls -a
-alias ll = eza -alF
+alias ll = ls -l
 
 # Clear screen
 alias cls = clear

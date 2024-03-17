@@ -89,7 +89,7 @@
 
 
   ################################
-  #### Home Manager (user config)#
+  #### Home Manager (user)     ###
   ################################
 
   home-manager = {
@@ -101,7 +101,7 @@
       };
       
       imports = [
-        ./ugly.nix
+        ./dotfiles/sway/sway.nix
       ];
 
       # Programs requiring config
@@ -161,6 +161,13 @@
           userName  = "nurho";
           userEmail = "willowisawisp@gmail.com";
         };
+
+        # Direnv
+        direnv = {
+          enable = true;
+          enableNushellIntegration = true;
+          nix-direnv.enable = true;
+        };
       };
 
 
@@ -181,7 +188,6 @@
         slurp # screenshots
         wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
         bemenu # menu
-#        mako # notifications
         swaynotificationcenter # notification center
         wdisplays # tool to configure displays
         wlogout # logout menu
@@ -193,8 +199,6 @@
         # Terminal
         neovim 
         gcc
-        cmake
-        eza
         neofetch
         bottom
         powertop
@@ -205,8 +209,9 @@
         tree
         tree-sitter
         rclone
-        tokei
         unzip
+        visidata
+        ouch
 
         # Windowed
         pavucontrol
@@ -222,24 +227,23 @@
         # Dev
         haskell.compiler.ghc94
         cabal-install
-        haskell-language-server
+        cabal2nix
+        pandoc
         texliveFull
+        distrobox
+        tokei
+
+        # LSP
+        haskell-language-server
         texlab
         lua-language-server
-        distrobox
-#        freeglut
-#        mesa
-#        libGL
-#        libGLU
-#    	   glew
-#		     glfw
-#        glm
 
         # Fonts
         nerdfonts
         font-awesome
         jetbrains-mono
       ];
+
 
       # Link extra config files
       xdg.configFile."nvim/init.lua".source = ./dotfiles/neovim/init.lua;
@@ -250,33 +254,20 @@
       xdg.configFile."sway/wallpaper.png".source = ./dotfiles/sway/wallpaper.png;
       xdg.configFile."wlogout".source = ./dotfiles/wlogout;
 
+      # Try to remember why this is necessary
+      fonts.fontconfig.enable = true;
+
+      # Services
       services.kanshi.systemdTarget = "";
+
       services.gammastep = {
         enable = true;
         provider = "manual";
         latitude = 50.0;
         longitude = -14.0;
       };
-      fonts.fontconfig.enable = true;
     };
   };
-
-  # Some programs need SUID wrappers, can be configured further or are started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 }
 
 # Help is available in the configuration.nix(5) man page, on
