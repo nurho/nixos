@@ -1,8 +1,7 @@
 # NixOS Configuration
-This is the directory containing my personal NixOS configuration. I will be gradually
-integrating my dotfiles into the build with the hope of eventually achieving....
-
-**MAXIMUM PURITY**
+This repository contains my personal NixOS configuration. It builds with a flake
+and uses homemanager.
 
 It uses Sway window manager and the ever beautiful Dracula colour scheme for everything
-possible.
+possible. It is likely that I will move to Cosmic DE when it is in a stable state and
+get rid of all the messy sway stuff.

@@ -1,0 +1,4 @@
+[[language]]
+name = "Cabal"
+file-types = ["cabal"]
+grammar = ["haskell"]

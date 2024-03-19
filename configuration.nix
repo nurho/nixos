@@ -141,7 +141,7 @@
         helix = {
           enable = true;
           settings = builtins.fromTOML (builtins.readFile ./dotfiles/helix/helix.toml);
-        };
+          languages = builtins.fromTOML (builtins.readFile ./dotfiles/helix/languages.toml);        };
         neovim = {
           enable = true;
           extraLuaConfig = builtins.readFile ./dotfiles/neovim/init.lua;
@@ -151,7 +151,7 @@
         git = {
           enable = true;
           userName  = "nurho";
-          userEmail = "willowisawisp@gmail.com";
+          userEmail = "12024497+nurho@users.noreply.github.com";
         };
 
         # Direnv
