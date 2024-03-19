@@ -18,7 +18,7 @@ alias vi = nvim
 
 # NixOS
 alias nixup = sudo nixos-rebuild switch --flake "/home/willow/nixos/#nixos"
-alias nixedit = nvim ~/nixos/configuration.nix
+alias nixedit = hx ~/nixos/configuration.nix
 
 # VM
 alias arch = distrobox enter arch

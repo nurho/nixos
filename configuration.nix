@@ -19,10 +19,6 @@
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
 
-  # Proxy
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   # Locale
   time.timeZone = "Europe/London";
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -107,12 +103,6 @@
       # Programs requiring config
       programs = {
 
-        # Bar
-        waybar = {
-          enable = true;
-          style = ./dotfiles/waybar/style.css;
-        };
-
         # Shell
         nushell = {
           enable = true;
@@ -124,10 +114,8 @@
         starship = {
           enable = true;
           settings = {
-            character = { 
-              success_symbol = "[➜](bold green)";
-              error_symbol = "[➜](bold red)";
-            };
+            character.success_symbol = "[➜](bold green)";
+            character.error_symbol = "[➜](bold red)";
           };
         };
 
@@ -149,10 +137,14 @@
           enableNushellIntegration = true;
         };
 
-        # Editor
+        # Editors
         helix = {
           enable = true;
           settings = builtins.fromTOML (builtins.readFile ./dotfiles/helix/helix.toml);
+        };
+        neovim = {
+          enable = true;
+          extraLuaConfig = builtins.readFile ./dotfiles/neovim/init.lua;
         };
 
         # Git
@@ -170,18 +162,14 @@
         };
       };
 
-
       # Other programs
       home.packages = with pkgs; [
+
         # Terminal
-        neovim 
-        gcc
         neofetch
         bottom
         powertop
         wget
-        networkmanager
-        networkmanagerapplet
         killall
         tree
         tree-sitter
@@ -194,6 +182,7 @@
         pavucontrol
         networkmanagerapplet
         firefox
+        palemoon-bin
         imv
         mpv
         zathura
@@ -202,6 +191,7 @@
         libreoffice
 
         # Dev
+        gcc
         haskell.compiler.ghc94
         cabal-install
         cabal2nix
@@ -222,15 +212,6 @@
       ];
 
 
-      # Link extra config files
-      xdg.configFile."nvim/init.lua".source = ./dotfiles/neovim/init.lua;
-      xdg.configFile."waybar/config".source = ./dotfiles/waybar/config;
-      xdg.configFile."swaylock/config".source = ./dotfiles/swaylock/config;
-      xdg.configFile."sworkstyle/config.toml".source = ./dotfiles/sworkstyle/config.toml;
-      xdg.configFile."sway/config".source = ./dotfiles/sway/config;
-      xdg.configFile."sway/wallpaper.png".source = ./dotfiles/sway/wallpaper.png;
-      xdg.configFile."wlogout".source = ./dotfiles/wlogout;
-
       # Try to remember why this is necessary
       fonts.fontconfig.enable = true;
 
@@ -246,6 +227,5 @@
     };
   };
 }
-
 # Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
