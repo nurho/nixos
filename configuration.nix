@@ -141,7 +141,8 @@
         helix = {
           enable = true;
           settings = builtins.fromTOML (builtins.readFile ./dotfiles/helix/helix.toml);
-          languages = builtins.fromTOML (builtins.readFile ./dotfiles/helix/languages.toml);        };
+          languages = builtins.fromTOML (builtins.readFile ./dotfiles/helix/languages.toml);
+        };
         neovim = {
           enable = true;
           extraLuaConfig = builtins.readFile ./dotfiles/neovim/init.lua;
@@ -192,16 +193,11 @@
 
         # Dev
         gcc
-        haskell.compiler.ghc94
-        cabal-install
-        cabal2nix
-        pandoc
         texliveFull
         distrobox
         tokei
 
         # LSP
-        haskell-language-server
         texlab
         lua-language-server
 

@@ -1,4 +1,7 @@
 [[language]]
-name = "Cabal"
+name = "cabal"
+scope = "source.cabal"
 file-types = ["cabal"]
-grammar = ["haskell"]
+grammar = "haskell"
+roots = []
+language-servers = [ "haskell-language-server" ]
