@@ -147,6 +147,9 @@
           enable = true;
           extraLuaConfig = builtins.readFile ./dotfiles/neovim/init.lua;
         };
+        emacs = {
+          enable = true;
+        };
 
         # Git
         git = {
