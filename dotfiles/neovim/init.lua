@@ -227,13 +227,13 @@ wk.register({
   e = { "<cmd>NERDTreeToggle<cr>", "Explorer" },
   t = {
     name = "Tab",
-    j = { "<cmd>BufferPrevious<cr>", "Previous" },
-    k = { "<cmd>BufferNext<cr>", "Next" },
+    h = { "<cmd>BufferPrevious<cr>", "Previous" },
+    l = { "<cmd>BufferNext<cr>", "Next" },
     p = { "<cmd>BufferPick<cr>", "Pick" },
     m = {
       name = "Move",
-      j = { "<cmd>BufferMovePrevious<cr>", "Previous" },
-      k = { "<cmd>BufferMoveNext<cr>", "Next" },
+      h = { "<cmd>BufferMovePrevious<cr>", "Previous" },
+      l = { "<cmd>BufferMoveNext<cr>", "Next" },
     },
   },
   f = {
