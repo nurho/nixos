@@ -49,7 +49,6 @@ exec swaync
 ################################
 ### Output configuration     ###
 ################################
-
 # Get names of outputs: swaymsg -t get_outputs
 # Default wallpapers stored in /run/current-system/sw/share/backgrounds/sway/
   output * bg ~/.config/sway/wallpaper.png fill
@@ -135,7 +134,7 @@ bar {
   bindsym $mod+Return exec $term
 
   # Kill focused window
-  bindsym $mod+Shift+q kill
+  bindsym $mod+Backspace kill
 
   # Start your launcher
   bindsym $mod+d exec $menu
