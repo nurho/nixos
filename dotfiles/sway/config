@@ -60,24 +60,21 @@ exec swaync
 ################################
 ### Input configuration      ###
 ################################
-
 # Get names of inputs: swaymsg -t get_inputs. `man 5 sway-input` for info.
-# Touchpad
-#  input "1739:52781:SYNA1000:00_06CB:CE2D_Touchpad" {
-  input "2:7:SynPS/2_Synaptics_TouchPad" {
+
+# Pointing devices
+  input type:touchpad {
     natural_scroll enabled
     tap enabled
-  #  dwt enabled
-  #  middle_emulation enabled
+  }
+  input type:pointer {
+    middle_emulation enabled
   }
 
-# Keyboard
-  input "1:1:AT_Translated_Set_2_keyboard" {
+# Keyboards
+  input type:keyboard {
     xkb_layout gb
     xkb_options caps:escape
-  }
-  input "12951:18804:ZSA_Technology_Labs_ErgoDox_EZ" {
-    xkb_layout gb
   }
 
 # Brightness keys
