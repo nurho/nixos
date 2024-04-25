@@ -46,30 +46,25 @@
   services.devmon.enable = true;
 
   # Login
-  # services.greetd = {
-  #   enable = true;
-  #   settings.default_session = {
-  #     command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
-  #     user = "willow";
-  #   };
-  # };
+  services.greetd = {
+    enable = true;
+    settings.default_session = {
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+      user = "willow";
+    };
+  };
 
   # Desktop
-  # services.dbus.enable = true;
-  # xdg.portal = {
-  #   enable = true;
-  #   wlr.enable = true;
-  #   extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  # };
-  # programs.sway = {
-  #   enable = true;
-  #   wrapperFeatures.gtk = true;
-  # };
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.enable = true;
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "willow";
+  services.dbus.enable = true;
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
 
   # VM
   virtualisation.podman.enable = true;
@@ -101,9 +96,9 @@
         stateVersion = "23.11"; # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
       };
       
-      # imports = [
-      #   ./dotfiles/sway/sway.nix
-      # ];
+      imports = [
+        ./dotfiles/sway/sway.nix
+      ];
 
       # Programs requiring config
       programs = {
@@ -178,10 +173,6 @@
         };
       };
 
-      
-      # Gnome settings
-      dconf.settings = import ./dotfiles/gnome/gnome.nix; # gnome settings
-
       # Other programs
       home.packages = with pkgs; [
 
@@ -230,15 +221,15 @@
       # Try to remember why this is necessary
       fonts.fontconfig.enable = true;
 
-      # # Services
-      # services.kanshi.systemdTarget = "";
-      #
-      # services.gammastep = {
-      #   enable = true;
-      #   provider = "manual";
-      #   latitude = 50.0;
-      #   longitude = -14.0;
-      # };
+      # Services
+      services.kanshi.systemdTarget = "";
+
+      services.gammastep = {
+        enable = true;
+        provider = "manual";
+        latitude = 50.0;
+        longitude = -14.0;
+      };
     };
   };
 }

@@ -1,1 +1,1 @@
-setq standard-indent 2
+(setq standard-indent 2)
