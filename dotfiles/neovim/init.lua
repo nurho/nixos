@@ -108,6 +108,17 @@ require("lazy").setup({
     },
   },
 
+  -- Agda
+  {
+    'kana/vim-textobj-user',
+  },
+  {
+    'neovimhaskell/nvim-hs.vim'
+  },
+  {
+    'isovector/cornelis',
+  },
+
   -- WhichKey
   {
     "folke/which-key.nvim",
@@ -229,7 +240,7 @@ wk.register({
     name = "Tab",
     h = { "<cmd>BufferPrevious<cr>", "Previous" },
     l = { "<cmd>BufferNext<cr>", "Next" },
-    p = { "<cmd>BufferPick<cr>", "Pick" },
+    j = { "<cmd>BufferPick<cr>", "Jump" },
     m = {
       name = "Move",
       h = { "<cmd>BufferMovePrevious<cr>", "Previous" },
