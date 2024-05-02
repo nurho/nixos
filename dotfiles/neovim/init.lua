@@ -213,6 +213,9 @@ set.cursorline = true
 set.number     = true
 set.wrap       = false
 
+-- Clipboard
+set.clipboard = "unnamedplus"
+
 
 -- ################################
 -- ### KEYBINDS                 ###

@@ -66,11 +66,12 @@
   #   enable = true;
   #   wrapperFeatures.gtk = true;
   # };
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
   services.xserver.enable = true;
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "willow";
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.wayland = true;
+  services.xserver.desktopManager.gnome.enable = true;
+#  services.displayManager.autoLogin.enable = true;
+#  services.displayManager.autoLogin.user = "willow";
 
   # VM
   virtualisation.podman.enable = true;
@@ -82,6 +83,8 @@
     experimental-features = "nix-command flakes";
     auto-optimise-store = true;
   };
+  nix.gc.automatic = true;
+  nix.gc.options = "--delete-older-than 10d";
 
   # Users
   users.users.willow = {
@@ -163,7 +166,6 @@
           # '';
         };
 
-
         # Git
         git = {
           enable = true;
@@ -179,15 +181,13 @@
         };
       };
 
-      
       # Gnome settings
       dconf.settings = import ./dotfiles/gnome/gnome.nix; # gnome settings
 
       # Other programs
       home.packages = with pkgs; [
-
         # Terminal
-        neofetch
+        hyfetch
         bottom
         powertop
         wget
@@ -198,6 +198,8 @@
         unzip
         visidata
         ouch
+        wl-clipboard
+        wally-cli
 
         # Windowed
         pavucontrol

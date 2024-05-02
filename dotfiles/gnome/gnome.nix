@@ -10,7 +10,7 @@
   "org/gnome/shell/keybindings" = {
     toggle-application-view = [];
     toggle-message-tray = [];
-    toggle-overview = [];
+    toggle-overview = ["<Super>g"];
     toggle-quick-settings = [];
   };
 
@@ -58,7 +58,7 @@
     custom-keybindings = [ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" ];
   };
   "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-    binding = "<Super>Return";
+    binding = "<Super>t";
     command = "wezterm start --always-new-process";
     name = "open-terminal";
   };
