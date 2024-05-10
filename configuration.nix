@@ -24,6 +24,7 @@
   i18n.defaultLocale = "en_GB.UTF-8";
   services.xserver.xkb.layout = "gb";
   console.keyMap = "uk";
+  hardware.keyboard.zsa.enable = true;
 
   # Graphics
   hardware.opengl.enable = true;
@@ -212,6 +213,7 @@
         gimp
         pcmanfm
         libreoffice
+        lm_sensors
 
         # Dev
         gcc
