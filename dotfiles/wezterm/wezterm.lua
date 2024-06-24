@@ -5,7 +5,10 @@ local config = wezterm.config_builder()
 
 -- ================================
 -- Actual config
-
+wezterm.on('gui-startup', function(cmd)
+  local _, _, window = wezterm.mux.spawn_window(cmd or {})
+  window:gui_window():maximize()
+end)
 
 -- ################################
 -- ### APPEARANCE               ###
@@ -20,7 +23,7 @@ config.color_scheme = 'Dracula'
 config.hide_mouse_cursor_when_typing = false
 
 -- Set shell
-config.default_prog = { 'nu' }
+config.default_prog = { 'fish' }
 
 -- Disable ligatures
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
