@@ -1,4 +1,4 @@
-# Aliases
+### Aliases
 # Neovim
 alias vi="nvim"
 

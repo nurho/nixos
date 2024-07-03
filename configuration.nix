@@ -27,7 +27,7 @@
 #  console.keyMap = "uk";
 
   # Graphics
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   # Sound
   sound.enable = true;
@@ -177,6 +177,7 @@
         libreoffice
         lm_sensors
         signal-desktop
+        gnome.dconf-editor
 
         # Dev
         gcc
@@ -187,6 +188,9 @@
         # LSP
         texlab
         lua-language-server
+
+        # Gnome Extensions
+        gnomeExtensions.workspaces-indicator-by-open-apps
 
         # Fonts
         nerdfonts
