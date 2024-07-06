@@ -73,34 +73,40 @@ config.colors = {
 local act = wezterm.action
 config.keys = {
 -- Panes
+  -- Create
   {key = 'v', mods = 'ALT', action = act.SplitVertical { domain = 'CurrentPaneDomain' }},
   {key = 'h', mods = 'ALT', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' }},
-
-  {key = '1', mods = 'ALT', action = act.ActivatePaneByIndex(0)},
-  {key = '2', mods = 'ALT', action = act.ActivatePaneByIndex(1)},
-  {key = '3', mods = 'ALT', action = act.ActivatePaneByIndex(2)},
-  {key = '4', mods = 'ALT', action = act.ActivatePaneByIndex(3)},
+  -- Move
   {key = 'UpArrow', mods = 'ALT', action = act.ActivatePaneDirection('Up')},
   {key = 'DownArrow', mods = 'ALT', action = act.ActivatePaneDirection('Down')},
   {key = 'LeftArrow', mods = 'ALT', action = act.ActivatePaneDirection('Left')},
   {key = 'RightArrow', mods = 'ALT', action = act.ActivatePaneDirection('Right')},
-
+  -- Delete
   {key = 'Backspace', mods = 'ALT', action = act.CloseCurrentPane { confirm = false }},
 
 -- Tabs
+  -- Create
   {key = 't', mods = 'ALT', action = act.SpawnTab 'DefaultDomain'},
-
+  -- Move
   {key = 'PageUp', mods = 'ALT|SHIFT', action = act.ActivateTabRelative(-1)},
   {key = 'PageDown', mods = 'ALT|SHIFT', action = act.ActivateTabRelative(1)},
   {key = 'PageUp', mods = 'ALT|SHIFT', action = act.MoveTabRelative(-1)},
   {key = 'PageDown', mods = 'ALT|SHIFT', action = act.MoveTabRelative(1)},
-
+  -- Delete
   {key = 'Backspace', mods = 'ALT|SHIFT', action = act.CloseCurrentTab { confirm = false }},
   {key = '#', mods = 'ALT', action = act.EmitEvent 'rust-layout'},
 }
+
+-- Tabs by number
 for i = 1, 9 do
-  table.insert(config.keys, {key = tostring(i), mods = 'ALT', action = act.ActivateTab(i - 1)})
+  table.insert(config.keys, {key = tostring(i), mods = 'ALT', action = act.ActivatePaneByIndex(i - 1)})
 end
+
+-- Panes by number
+for i = 1, 9 do
+  table.insert(config.keys, {key = tostring(i), mods = 'ALT|SHIFT', action = act.ActivateTab(i - 1)})
+end
+
 -- ================================
 -- Return the configuration to wezterm
 return config

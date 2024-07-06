@@ -66,11 +66,24 @@
   "org/gnome/desktop/input-sources" = { xkb-options = ["caps:escape_shifted_capslock"]; };
 
   "org/gnome/settings-daemon/plugins/media-keys" = {
-    custom-keybindings = [ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" ];
+    custom-keybindings = [ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+                           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+                           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
+    ];
   };
   "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
     binding = "<Super>t";
     command = "wezterm start --always-new-process";
     name = "open-terminal";
+  };
+  "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+    binding = "<Super>e";
+    command = "emacs";
+    name = "open-emacs";
+  };
+  "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+    binding = "<Super>b";
+    command = "firefox";
+    name = "open-browser";
   };
 }
