@@ -110,6 +110,15 @@
         yazi = {
           enable = true;
           enableFishIntegration = true;
+          settings.opener = {
+            edit = [
+              {
+                run = "nvim \"$@\"";
+                block = true;
+                for = "unix";
+              }
+            ];
+          };
         };
 
         # Editors
@@ -125,7 +134,7 @@
         emacs = {
           enable = true;
           package = pkgs.emacs;  # replace with pkgs.emacs-gtk, or a version provided by the community overlay if desired.
-          extraPackages = epkgs: [ epkgs.dracula-theme ];
+          extraPackages = epkgs: [ epkgs.dracula-theme epkgs.evil epkgs.haskell-mode ];
           extraConfig = builtins.readFile ./dotfiles/emacs/init.el;
         };
 

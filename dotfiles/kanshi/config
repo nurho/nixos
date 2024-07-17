@@ -1,9 +1,0 @@
-profile docked {
-	output eDP-1 disable
-  output DP-3 enable
-  output DP-4 enable
-}
-
-profile undocked {
-	output eDP-1 enable
-}

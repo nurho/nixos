@@ -78,7 +78,7 @@
   };
   "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
     binding = "<Super>e";
-    command = "emacs";
+    command = "emacs -mm";
     name = "open-emacs";
   };
   "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {

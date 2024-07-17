@@ -2,6 +2,16 @@
 # Neovim
 alias vi="nvim"
 
+# Yazi
+function yy
+	set tmp (mktemp -t "yazi-cwd.XXXXXX")
+	yazi $argv --cwd-file="$tmp"
+	if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+		cd -- "$cwd"
+	end
+	rm -f -- "$tmp"
+end
+
 # NixOS
 alias nixup="sudo nixos-rebuild switch --flake \"/home/willow/nixos/#nixos\""
 alias nixedit="nvim ~/nixos/configuration.nix"
@@ -39,7 +49,7 @@ alias localbu="sudo rclone sync ~ /run/media/willow/Data-Backup --include-from ~
 # Zathura
 alias zdv="zathura"
 function zdvd
-  zathura $argv &
+  zathura $argv & ; disown
 end
 function zdve
   zathura $argv & ; disown ; exit
