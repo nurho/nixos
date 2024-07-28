@@ -45,7 +45,6 @@ end
 alias mlocal="mount /dev/sda1 /run/media/willow/"
 alias umlocal="umount /dev/sda1"
 alias localbu="sudo rclone sync ~ /run/media/willow/Data-Backup --include-from ~/nixos/dotfiles/rclone/includefile.txt -vvP --stats=1s"
-alias remotebu="rclone sync ~ myremote: --include-from ~/nixos/dotfiles/rclone/includefile.txt -vvP --stats=1s --checkers 16"
 
 # Zathura
 alias zdv="zathura"

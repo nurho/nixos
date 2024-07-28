@@ -23,14 +23,13 @@
   # locale
   time.timeZone = "Europe/London";
   i18n.defaultLocale = "en_GB.UTF-8";
-#  services.xserver.xkb.layout = "gb";
-#  console.keyMap = "uk";
+  services.xserver.layout = "us,gb";
+  console.keyMap = "uk";
 
   # Graphics
   hardware.graphics.enable = true;
 
   # Sound
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
@@ -82,13 +81,7 @@
 
       # Programs requiring config
       programs = {
-
         # Shell
-        # nushell = {
-        #   enable = true;
-        #   configFile.text = builtins.readFile ./dotfiles/nu/config.nu;
-        #   envFile.text = builtins.readFile ./dotfiles/nu/env.nu;
-        # };
         fish = {
           enable = true;
           interactiveShellInit = builtins.readFile ./dotfiles/fish/shellInit.fish;
@@ -110,15 +103,13 @@
         yazi = {
           enable = true;
           enableFishIntegration = true;
-          settings.opener = {
-            edit = [
-              {
-                run = "nvim \"$@\"";
-                block = true;
-                for = "unix";
-              }
-            ];
-          };
+          settings.opener.edit = [
+            {
+              run = "nvim \"$@\"";
+              block = true;
+              for = "unix";
+            }
+          ];
         };
 
         # Editors
@@ -134,7 +125,7 @@
         emacs = {
           enable = true;
           package = pkgs.emacs;  # replace with pkgs.emacs-gtk, or a version provided by the community overlay if desired.
-          extraPackages = epkgs: [ epkgs.dracula-theme epkgs.evil epkgs.haskell-mode ];
+          extraPackages = epkgs: [ epkgs.dracula-theme epkgs.evil epkgs.haskell-mode epkgs.doom-modeline ];
           extraConfig = builtins.readFile ./dotfiles/emacs/init.el;
         };
 
@@ -167,22 +158,17 @@
         tree
         tree-sitter
         rclone
-        unzip
         visidata
         ouch
         wl-clipboard
-        wally-cli
 
         # Windowed
-        pavucontrol
-        networkmanagerapplet
         firefox
         palemoon-bin
         imv
         mpv
         zathura
         gimp
-        pcmanfm
         libreoffice
         lm_sensors
         signal-desktop
@@ -200,11 +186,6 @@
 
         # Gnome Extensions
         gnomeExtensions.workspaces-indicator-by-open-apps
-
-        # Fonts
-        nerdfonts
-        font-awesome
-        jetbrains-mono
       ];
 
       # Try to remember why this is necessary

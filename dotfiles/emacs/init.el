@@ -3,6 +3,7 @@
 (setq standard-indent 2)
 (setq visible-bell 1)
 (setq default-frame-alist '((undecorated . t))) 
+(set-frame-font "DejaVu Sans Mono" t t)
 
 ; Theme
 (load-theme 'dracula)
